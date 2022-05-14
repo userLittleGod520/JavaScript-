@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class father{
+        //      moeny(){
+        //          console.log('我是父亲，我有两百！');
+        //      }
+        // }
+        // // 将父亲的属性和方法继承给 儿子
+        // class Son extends father{
+        // }
+        // var son = new Son(); // new一个对象
+        // console.log(son);
+        // son.moeny();
+
+        class father{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            sum(){
+                console.log(this.x + this.y);
+            }
+        }
+        class Son extends father{
+            constructor(x,y){
+                super(x,y); // 调用了父类的构造函数
+            }
+        }
+        // 将父亲的属性和方法继承给 儿子 super 关键字 可以访问和调用对象父类的函数 可以调用父类的构造函数 
+        var son = new Son(1,2); // 3
+        var son2 = new Son(30,3); // 33
+        son.sum();
+        son2.sum();
+    </script>
+</body>
+</html>

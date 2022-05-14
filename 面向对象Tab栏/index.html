@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_3401713_ka4t3p6kr.css">
+    <style>
+        h4{
+            text-align: center;
+        }
+        .container{
+            width: 900px;
+            height:600px;
+            border:1px solid red;
+            margin: 0 auto;
+            position: relative;
+        }
+        .firstnav{
+            width:900px;
+            height:65px;
+            position: relative;
+            margin-top:-17px;
+        }
+        .firstnav ul li{
+            width:100px;
+            height:65px; 
+            border:1px solid red;
+            list-style-type: none;
+            float: left;
+            text-align: center;
+            line-height: 65px;
+            position: relative;
+        }
+        .firstnav ul {
+             width: 100%;
+             height: 100%;
+             margin-left:-40px;
+        }
+        .firstnav ul li span{
+            display: block;
+            text-align: right;
+            margin-top:-16px;
+            position: absolute;
+            top:-5px;
+            right: 0px;
+        }
+        .tabadd{
+            width:30px;
+            height:30px;
+            position: absolute;
+            top:15px;
+            right:30px;
+            border:1px solid #ccc;
+        }
+        span{
+            display: block;
+            text-align: center;
+        }
+        .content{
+            width: 900px;
+            height: 535px;
+            position: absolute;
+            top:130px;
+            left:400px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h4>js面向对象 动态添加标签页</h4>
+    <div class="container">
+        <nav class="firstnav">
+            <ul>
+                <li>测试1<span class="iconfont icon-guanbi"></span></li>
+                <li>测试1<span class="iconfont icon-guanbi"></span></li>
+                <li>测试1<span class="iconfont icon-guanbi"></span></li>
+            </ul>
+            <div class="tabadd">
+                <span>+</span>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <div class="content-scon">
+            <section>测试1</section>
+            <section>测试2</section>
+            <section>测试3</section>
+        </div>
+    </div>
+    <script src="./tab.js"></script>
+</body>
+</html>

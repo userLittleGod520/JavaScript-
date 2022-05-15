@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数有一个缺点
+        // 每一次实例化时，都会在内存中开辟新的空间去存放属性和方法  存放地址不一样
+        // 里面的属性和方法 都一样。就会造成浪费内存空间
+        // 解决方法  将同样的属性和方法 放在原型对象里面就不会造成浪费内存
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            // this.sing = function(){
+            //     console.log('我喜欢唱歌');
+            // }
+        }
+        Star.prototype.sing = function(){
+            console.log('我喜欢唱歌!');
+        }
+        var ldh = new Star('刘德华',18);
+        var zxy = new Star('张学友',20);
+        console.log(ldh.sing === zxy.sing); // 内存开辟空间 里面属性存放的地址不一样
+        // prototype 原型对象 每一个构造函数都有
+        // 把不变的方法 直接定义在prototype原型对象上 这些对象里面的属性和方法就可以复用了
+        console.log(Star.prototype);
+        ldh.sing(); // 实现方法的共享
+        zxy.sing();
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            // this.sing = function(){
+            //     console.log('我喜欢唱歌!');
+            // }
+        }
+        // Star.prototype.sing = function(){
+        //     console.log('我会唱歌');
+        // }
+        // Star.prototype.movie = function(){
+        //     console.log('我会演电影!');
+        // }
+        Star.prototype = { // 地址变了  
+            // 如果修改了原来的原型对象，给原型对象赋值是一个对象，则必须手动利用constructor指回原来的构造函数
+            constructor:Star, 
+            sing :function(){
+               console.log('我会唱歌'); 
+            },
+            movie: function(){
+              console.log('我会演电影!');
+            }
+        }
+        var ldh =  new Star('刘德华',19);
+        var zxy = new Star('张学友',19);
+        console.log(Star.prototype.constructor);
+        console.log(ldh.__proto__.constructor);
+    </script>
+</body>
+</html>

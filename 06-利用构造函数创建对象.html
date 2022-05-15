@@ -23,11 +23,15 @@
                 console.log('我会唱歌');
             }
         }
+        // 实例成员 就是构造函数内部使用 this添加的
         var ldh = new Star('刘德华',18);
         var zxy = new Star('张学友',18);
-        console.log(ldh);
+        console.log(ldh.uname);
         ldh.sing();
         zxy.sing();
+        // 静态成员 直接在构造函数本身添加的成员 sex就是静态成员
+        // 只能通过构造函数来访问
+        Star.sex = '男'; // 不能通过对象来访问
     </script>
 </body>
 </html>

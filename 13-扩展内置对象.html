@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 扩展内置对象 可以通过原型对象 扩展自定义方法 给数组增加自定义偶数求和功能
+        console.log(Array.prototype);
+        Array.prototype.sum = function(){
+            var sum = 0;
+            for( var i = 0; i < this.length;i++){
+                sum += this[i];
+            }
+            return sum;
+        }
+        // Array.prototype = { // 使用对象的方法 会覆盖原来数组的方法 会报错
+        //     sum: function(){
+        //         var sum = 0;
+        //     for( var i = 0; i < this.length;i++){
+        //         sum += this[i];
+        //     }
+        //     return sum;
+        //     }
+        // }
+        var arr = [1,2,3];
+        console.log(arr.sum());
+        var arr2 = new Array(11,22,33);
+        console.log(arr2.sum());
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 借用父构造函数 继承属性
+        // 1、父构造函数
+        function Father(uname,age){
+            // this 指向父构造函数 的实例对象
+            this.uname = uname;
+            this.age =age;
+        }
+        Father.prototype.money = function(){ // 写在了原型对象里面 并没有写在构造函数里面 所以儿子没有调用
+            console.log('赚了很多钱!');
+        }
+        // 2、子构造函数
+        function Son(uname,age,score){
+            // this 指向子构造函数的 实例对象
+            Father.call(this,uname,age);  // 子构造函数里面的this 指向 子
+            this.score = score; 
+        }
+        Son.prototype = new Father(); // 如果利用对象形式修改了原型对象 别忘了利用constructor 指回Son的构造函数
+        Son.prototype.constructor = Son; // 指向回去
+        // Son.prototype = Father.prototype; //直接赋值 会有问题 修改了父原型对象
+        // 这个是子构造函数 专门的方法
+        Son.prototype.kaoshi = function(){
+            console.log('儿子要考试!');
+        }
+        var ldh = new Son('刘德华',20,100);
+        console.log(ldh);
+        console.log(Father.prototype);
+        console.log(Son.prototype.constructor);
+    </script>
+</body>
+</html>

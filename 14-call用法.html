@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6之前没有exdents继承，我们通过 构造函数 + 原型对象模拟实现继承  组合继承
+        // call(); 调用这个函数 并修改函数运行的this指向
+
+        function fn(x,y){
+            console.log('我是李神!');
+            console.log(this);
+            console.log(x,y);
+        }
+        var o = {
+            name:'andy'
+        };
+        // fn(); // 原始调用函数方法
+        //1、call调用函数 修改this指向
+        // fn.call();
+
+        //2、call()方法 可以改变this指向 此时 函数的指向改变成了 o
+        fn.call(o,1,2);
+    </script>
+</body>
+</html>

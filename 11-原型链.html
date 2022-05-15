@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+        } 
+        Star.prototype.sing = function(){
+            console.log('我会唱歌');
+        }
+        // Star.prototype.sex = '男';
+        // Object.prototype.sex = '男';
+        var ldh = new Star('刘德华',19);
+        var zxy = new Star('张学友',20);
+        // 1、只要有对象就会有__proto__ 原型， 指向原型对象 
+        console.log(Star.prototype); 
+        // 2、我们Star原型对象 里面的__proto__ 原型指向的是 Object.prototype
+        console.log(Star.prototype.__proto__ === Object.prototype); // true
+        // 3、Object.prototypr.__proto__指向null 
+        console.log(Object.prototype.__proto__); // null
+
+        // 4、查找规则 在原型链里面一层一层找 没有就underfiend
+        Object.prototype.sex = '女';
+        ldh.sex = '男';
+        console.log(ldh.sex); // 就近原则 返回男
+
+        // Object.prototype里面有toString 方法
+        // 虽然其余2个没有，但是上层有toString方法 就可以用
+        console.log(Object.prototype);
+        console.log(Star.prototype); // 没有toSting()方法
+        console.log(ldh); // 没有toString()方法
+        console.log(ldh.toString()); 
+    </script>
+</body>
+</html>
